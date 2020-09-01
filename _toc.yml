@@ -21,7 +21,7 @@
   chapters:
     - file: class/StataTutorialSlides.slides.html
       title: Introduction to STATA
-    - file: class/DataWranglingStata.html
+    - file: class/DataWranglingStata.ipynb
       title: Data Wrangling
     - file: class/TestStataKernel.ipynb
       title: Week 1 - Stata Kernel
