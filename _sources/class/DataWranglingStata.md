@@ -6,8 +6,7 @@ One of the most powerful and attractive features of STATA is how easy it is to c
 
 ### Appending data
 
-Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the <code>append</code> command in STATA.
-
+Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the ``append`` command in STATA.
 
 ![](../images/append.png)
 
@@ -15,15 +14,15 @@ Appending data is a simple way combine observations from two different datasets.
 
 ### Merging data
 
-A similar, but slightly different scenario is when we want to `merge` two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the ``merge`` command is to create a single dataset with student identifiers, school identifiers, and student grades:
+A similar, but slightly different scenario is when we want to ``merge`` two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the ``merge`` command is to create a single dataset with student identifiers, school identifiers, and student grades:
 
-<img src="../images/merge_one.png" width="800">
+![](../images/merge_one.png)
 
 ### Reshaping Data
 
 Often we have multiple observations for the same unit (for example, a GPA for a student each term). It is sometimes convenient to reshape the data so that we have a single observation per student. When we have multiple observations per unit, then our data is in ``long`` forma. If we have a single observation per unit, then we are in ``wide`` format. In STATA we can freely convert between the two:
 
-<img src="img/reshape.png" width="800">
+![](../images/reshape.png)
 
 The syntax for reshaping can sometimes be hard to remember so don't forget to reference the ``help`` file if you find yourself forgetting how to reshape the data. 
 
@@ -35,7 +34,7 @@ The first dataset we will look at is named ``opioid_2006.dta`` and comes from th
 
 
 ```stata
-use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2006.dta, replace
+use ./data/opioids_2006.dta, replace
 
 describe
 ```
@@ -43,8 +42,7 @@ describe
     
     
     
-    Contains data from /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_20
-    > 06.dta
+    Contains data from ./data/opioids_2006.dta
       obs:         2,733                          
      vars:             4                          19 Aug 2020 14:20
     --------------------------------------------------------------------------------
@@ -180,7 +178,7 @@ Now we can ``append`` the 2016 dataset so that we have all the data together.
 
 
 ```stata
-append using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2016.dta
+append using ./data/opioids_2016.dta
 ```
 
 Now the dataset should include both the 2006 prescription rates as well as the 2016 prescription rates. To make sure we have everything here, let's count the number of observations
@@ -276,13 +274,14 @@ qui graph twoway histogram prescrip_rate, color(gs12) ///
     legend(off) ///
     graphregion(color(white) fcolor(white)) 
 
-gr export "img/prescriptions.svg", replace
+gr export "../images/prescriptions.svg", replace
 ```
 
     
     
-    (note: file img/prescriptions.svg not found)
-    (file img/prescriptions.svg written in SVG format)
+    (file ../images/prescriptions.svg written in SVG format)
+
+
 ![Alt text](https://darnold199.github.io/econ5/images/prescriptions.svg)
 
 To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.
@@ -293,9 +292,28 @@ However, to do this, we need data on unemployment rates. These data will come fr
 
 
 ```stata
-use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace
+use ./data/urate_2006.dta, replace
 d
 ```
+
+    
+    
+    
+    Contains data from ./data/urate_2006.dta
+      obs:         2,733                          
+     vars:             4                          19 Aug 2020 14:20
+    --------------------------------------------------------------------------------
+                  storage   display    value
+    variable name   type    format     label      variable label
+    --------------------------------------------------------------------------------
+    county          str47   %47s                  County
+    labor_force     str14   %14s                  Total number of Workers in the
+                                                    Labor Force
+    urate           double  %10.0g                Unemployment Rate
+    fips_county     str16   %16s                  Numeric FIPS code for County
+    --------------------------------------------------------------------------------
+    Sorted by: fips_county
+
 
 If you recall, we had a variable called ``fips_county`` in the opioid dataset as well. We will be merging the dataset on this variable. You need to make sure in general that the variable you are matching on is standardized across datasets. For these datasets, I found that the FIPS variables were stored in slightly different ways across datasets. For example, the FIPS code for the first county "Autauga County" was stored as "01001" in one of the datasets but "1001" where the difference is the leading zero. So I had to add the zero to the latter variable so that the codes would match properly. If you don't make sure the merge variable is correct your analysis will be completely thrown off.
 
@@ -303,14 +321,22 @@ So now let's merge these two datsets using the ``merge`` command:
 
 
 ```stata
-merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2016.dta
+merge 1:1 fips_county using ./data/urate_2016.dta
 ```
+
+    
+        Result                           # of obs.
+        -----------------------------------------
+        not matched                             0
+        matched                             2,733  (_merge==3)
+        -----------------------------------------
+
 
 The merge command will always display a table like this as well as generate a variable called ``_merge`` (unless you use an option not to report or generate this variabl). In this example, I already made sure that the counties perfectly match between the opioids and the unemployment datasets. Therefore we got ``_merge==3`` for all the counties, because all the counties matched. Just to show you what happens, I'm going to reload the unemployment dataset, drop 1 observation, and then merge the two datasets again
 
 
 ```stata
-use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace
+use ./data/urate_2006.dta, replace
 
 // drop 1st observation
 drop if _n==1
@@ -320,22 +346,46 @@ merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/o
 
 ```
 
+    
+    
+    (1 observation deleted)
+    
+    
+        Result                           # of obs.
+        -----------------------------------------
+        not matched                             1
+            from master                         0  (_merge==1)
+            from using                          1  (_merge==2)
+    
+        matched                             2,732  (_merge==3)
+        -----------------------------------------
+
+
 Now we see that 2,732 of the counties in urate_2006.dta matched to a county in the opioids_2006 dataset. However, there was one county in the **using** dataset that did not match, by ``_merge==2`` in this table. In STATA, the **master** dataset is the dataset in memory before you apply the merge command. The **using** dataset is the dataset you merge to. So in this example, we loaded urate_2006.dta, making it the **master** dataset, and then we merged ``using`` opioids_2006.dta, making opioids_2006 the **using** dataset. Now let's get back to application at hand and see how opioid prescription rates relate to unemployment rates. The most transparent way to start exploring is to just plot all the data in a scatter plot and see if we can see any patterns.
 
 
 ```stata
-use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace
-merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2006.dta, nogen noreport
+use ./data/urate_2006.dta, replace
+merge 1:1 fips_county using ./data/opioids_2006.dta, nogen noreport
 ```
 
 
 ```stata
-twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(small) ///
+qui twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(small) ///
     title("Relation Between Unemployment and Opioids") ///
     xtitle("Unemployment Rate") ///
     ytitle("Prescriptions Per 100 People") ///
     graphregion(color(white) fcolor(white)) 
+
+gr export "../images/opioids_u.svg", replace
 ```
+
+    
+    
+    (file ../images/opioids_u.svg written in SVG format)
+
+
+![Alt text](https://darnold199.github.io/econ5/images/opioids_u.svg)
 
 I'm not sure about you but it is difficult for me to see any relationship in this graph. It looks perhaps vaguely that increases in unemployment rates are associated with higher prescription rates, but here hard to tell given how many counties there are. What we are going to do next is to use a dimension reduction technique that will allow us to better visualize the relationship between unemployment and prescription rates.
 
@@ -353,6 +403,23 @@ egen bin_u = cut(urate), group(10)
 tab bin_u
 ```
 
+    
+          bin_u |      Freq.     Percent        Cum.
+    ------------+-----------------------------------
+              0 |        261        9.55        9.55
+              1 |        232        8.49       18.04
+              2 |        319       11.67       29.71
+              3 |        265        9.70       39.41
+              4 |        240        8.78       48.19
+              5 |        279       10.21       58.40
+              6 |        277       10.14       68.53
+              7 |        295       10.79       79.33
+              8 |        274       10.03       89.35
+              9 |        291       10.65      100.00
+    ------------+-----------------------------------
+          Total |      2,733      100.00
+
+
 The option ``group(10)`` indicated we wanted 10 different bins. There is not a hard science in computing the number of bins, it will often depend on what variable you are looking at. Choosing 10 here is more or less arbitrary.
 
 Now we are going to ``collapse`` the data so that we have a single observation per value of ``bin_u``. ``collapse`` can be extremely useful as it allows you to change the unit of observation of your dataset quickly. For example, imagine we want to go from counties to states, from individuals to firms, from students to schools. Collapse will allow you to quickly transform the unit of observation in your dataset. In our data, we would like an observation for each bin.
@@ -367,16 +434,115 @@ collapse (mean) prescrip_rate urate, by(bin_u)
 %head
 ```
 
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bin_u</th>
+      <th>prescrip_rate</th>
+      <th>urate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>68.59348659003832</td>
+      <td>2.784674329501916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>70.88275862068967</td>
+      <td>3.351293103448272</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>73.89278996865207</td>
+      <td>3.818808777429465</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>70.92981132075475</td>
+      <td>4.203396226415093</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4</td>
+      <td>82.70625000000004</td>
+      <td>4.502500000000001</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5</td>
+      <td>81.48136200716843</td>
+      <td>4.847311827956991</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6</td>
+      <td>80.91768953068592</td>
+      <td>5.24765342960289</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>7</td>
+      <td>88.80711864406781</td>
+      <td>5.710508474576269</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>8</td>
+      <td>93.96167883211683</td>
+      <td>6.480656934306568</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>9</td>
+      <td>92.04261168384876</td>
+      <td>8.413402061855663</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 To break down the command above ``(mean)`` indicates that STATA will compute the average value of ``prescrip_rate`` and ``urate`` within each ``bin_u`` and then collapse the data so that there is a single observation for each value of ``bin_u``. Therefore, for ``bin_u=0`` the average unemployment rate is 2.8 while the average prescriptions per 100 people is 68.7. Moving to ``bin_u=1`` the average unemployment rate is 3.4 while the average prescriptions per 100 people is 70.9. To visualize the data, we can try the scatterplot again, but with the bins.
 
 
 ```stata
-twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(large) ///
+qui twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(large) ///
     title("Relationship Between Unemployment and Opioids") ///
     xtitle("Unemployment Rate") ///
     ytitle("Prescriptions Per 100 People") ///
     graphregion(color(white) fcolor(white)) 
+
+gr export ../images/opioids_u_2.svg, replace
 ```
+
+    
+    
+    (file ../images/opioids_u_2.svg written in SVG format)
+
+
+![Alt text](https://darnold199.github.io/econ5/images/opioids_u_2.svg.svg)
 
 Now it is clear that the prescription rates for opioids are higher in areas with higher unemployment, as shown in this figure. Again, it is important to stress that this relationship is by no means causal and the proper policy response likely depends on establishing causality. For example, imagine the goal of the government is to reduce opioid usage and they have two policies at their disposal. Policy one is to increase funding for prescription monitoring programs which can identify inappropriate prescription behavior by doctors. Policy two is to increase local employment subsidies increase the employment rates, which will in turn decrease opioid abuse.
 

@@ -1,0 +1,1102 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Econ/Poli 5</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom_layouts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pdf_print.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/save_state.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "darnold199/econ5");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://darnold199.github.io/econ5/Jupyter/DataWranglingStata.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://darnold199.github.io/econ5/Jupyter/DataWranglingStata.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="&lt;no title&gt;" />
+<meta property="og:description" content="" />
+<meta property="og:image"       content="https://darnold199.github.io/econ5/_static/icon.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/icon.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Econ/Poli 5</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/syllabus.html">
+   Course Syllabus
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About this course
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/course_schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/accommodations.html">
+   Accommodations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/doing_well.html">
+   How to do well in this course
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/faq.html">
+   Frequently Asked Questions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Course Feedback
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about/feedback.html">
+   Anonymous Feedback Form
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  First Week!
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/getting_started.html">
+   Getting Started
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1 - Kinematics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/DataWranglingStata.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/TestStataKernel.html">
+   Week 1 - Stata Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic2.html">
+   Week 2 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic3.html">
+   Week 3 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic4.html">
+   Week 4 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic5.html">
+   Week 5 - Topic
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2 - Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/part2.html">
+   Part 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic6.html">
+   Week 6 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic7.html">
+   Week 7 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic8.html">
+   Week 8 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic9.html">
+   Week 9 - Topic
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 3 - Energy and Momentum
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/part3.html">
+   Part 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic10.html">
+   Week 10 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic11.html">
+   Week 11 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic12.html">
+   Week 12 - Topic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/topic13.html">
+   Week 13 - Topic
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Lab Materials
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/labs.html">
+   Lab Stuff
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Final Exam prep
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class/final.html">
+   Exam stuff
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Jupyter/DataWranglingStata.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/darnold199/econ5"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/darnold199/econ5/issues/new?title=Issue%20on%20page%20%2FJupyter/DataWranglingStata.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/darnold199/econ5/edit/master/Jupyter/DataWranglingStata.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>{
+“cells”: [
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“# Data Wrangling in STATA\n”,
+“\n”,
+“## Introduction and Overview\n”,
+“\n”,
+“One of the most powerful and attractive features of STATA is how easy it is to construct and clean data. By the end of the notebook you will earn how to append datasets, merge datasets, reshape datasets and collapse datasets. \n”,
+“\n”,
+“### Appending data\n”,
+“\n”,
+“Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the <code class="docutils literal notranslate"><span class="pre">append</span></code> command in STATA.\n”,
+“\n”,
+“<img alt="" src="../_images/append.png" />\n”,
+“\n”,
+“<!---To append two datasets you need to be careful about being consistent with variable names across datasets. For example, if dataset 1 had named the GPA variable ``GPA`` and dataset 2 had named it ``grade_point_average``, then both variables will appear in the appended dataset, but GPA will be missing for ever student in dataset 2.--> \n”,
+“\n”,
+“### Merging data\n”,
+“\n”,
+“A similar, but slightly different scenario is when we want to <code class="docutils literal notranslate"><span class="pre">merge</span></code> two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command is to create a single dataset with student identifiers, school identifiers, and student grades:\n”,
+“\n”,
+“&lt;img src=”../images/merge_one.png” width=”800”&gt;\n”,
+“\n”,
+“### Reshaping Data\n”,
+“\n”,
+“Often we have multiple observations for the same unit (for example, a GPA for a student each term). It is sometimes convenient to reshape the data so that we have a single observation per student. When we have multiple observations per unit, then our data is in <code class="docutils literal notranslate"><span class="pre">long</span></code> forma. If we have a single observation per unit, then we are in <code class="docutils literal notranslate"><span class="pre">wide</span></code> format. In STATA we can freely convert between the two:\n”,
+“\n”,
+“&lt;img src=”../images/reshape.png” width=”800”&gt;\n”,
+“\n”,
+“The syntax for reshaping can sometimes be hard to remember so don’t forget to reference the <code class="docutils literal notranslate"><span class="pre">help</span></code> file if you find yourself forgetting how to reshape the data. “
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“## Application – Opioid Prescriptions in the United States\n”,
+“\n”,
+“Beginning in the 1990s up until today, opioid usage has been skyrocketing in the United States. In this application we are going to look at opioid usage across U.S. counties. We will be particularly interested in understanding what factors, such as labor-market conditions, may be associated with opioid usage.\n”,
+“\n”,
+“The first dataset we will look at is named <code class="docutils literal notranslate"><span class="pre">opioid_2006.dta</span></code> and comes from the CDC <a class="reference external" href="https://www.cdc.gov/drugoverdose/maps/rxrate-maps.html">source</a>. The data reports the prescription rate for a large portion of U.S. counties. The prescription rate will be defined as the number of prescriptions (per year) per 100 people. So a prescription rate of 50 implies that in that year, there were 50 opioid prescriptions per 100 people. Because a single person can have multiple prescriptions per year, this rate is not equal to the fraction of people using opioids per year. That will be even clearer once we load the data.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 1,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“\n”,
+“\n”,
+“\n”,
+“Contains data from ./data/opioids_2006.dta\n”,
+”  obs:         2,733                          \n”,
+” vars:             4                          19 Aug 2020 14:20\n”,
+“——————————————————————————–\n”,
+”              storage   display    value\n”,
+“variable name   type    format     label      variable label\n”,
+“——————————————————————————–\n”,
+“county          str25   %25s                  County\n”,
+“state           str5    %9s                   State\n”,
+“fips_county     str16   %16s                  Numeric FIPS code for County\n”,
+“prescrip_rate   double  %10.0g                Prescriptions per 100 persons\n”,
+“——————————————————————————–\n”,
+“Sorted by: fips_county\n”
+]
+}
+],
+“source”: [
+“use ./data/opioids_2006.dta, replace\n”,
+“\n”,
+“describe”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“As mentioned above our key variable of interest will be <code class="docutils literal notranslate"><span class="pre">prescription_rate</span></code> which gives the “
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 2,
+“metadata”: {},
+“outputs”: [
+{
+“data”: {
+“text/html”: [
+“<div>\n”,
+“<style scoped>\n”,
+”    .dataframe tbody tr th:only-of-type {\n”,
+”        vertical-align: middle;\n”,
+”    }\n”,
+“\n”,
+”    .dataframe tbody tr th {\n”,
+”        vertical-align: top;\n”,
+”    }\n”,
+“\n”,
+”    .dataframe thead th {\n”,
+”        text-align: right;\n”,
+”    }\n”,
+“</style>\n”,
+“&lt;table border=”1” class=”dataframe”&gt;\n”,
+”  <thead>\n”,
+”    &lt;tr style=”text-align: right;”&gt;\n”,
+”      <th></th>\n”,
+”      <th>county</th>\n”,
+”      <th>state</th>\n”,
+”      <th>fips_county</th>\n”,
+”      <th>prescrip_rate</th>\n”,
+”    </tr>\n”,
+”  </thead>\n”,
+”  <tbody>\n”,
+”    <tr>\n”,
+”      <th>1</th>\n”,
+”      <td>Autauga</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01001</td>\n”,
+”      <td>134.8</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>2</th>\n”,
+”      <td>Baldwin</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01003</td>\n”,
+”      <td>127.8</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>3</th>\n”,
+”      <td>Barbour</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01005</td>\n”,
+”      <td>78.09999999999999</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>4</th>\n”,
+”      <td>Bibb</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01007</td>\n”,
+”      <td>114.3</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>5</th>\n”,
+”      <td>Blount</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01009</td>\n”,
+”      <td>40.3</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>6</th>\n”,
+”      <td>Bullock</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01011</td>\n”,
+”      <td>34.6</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>7</th>\n”,
+”      <td>Butler</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01013</td>\n”,
+”      <td>105.4</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>8</th>\n”,
+”      <td>Calhoun</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01015</td>\n”,
+”      <td>165.7</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>9</th>\n”,
+”      <td>Chambers</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01017</td>\n”,
+”      <td>120.4</td>\n”,
+”    </tr>\n”,
+”    <tr>\n”,
+”      <th>10</th>\n”,
+”      <td>Cherokee</td>\n”,
+”      <td>AL</td>\n”,
+”      <td>01019</td>\n”,
+”      <td>123.8</td>\n”,
+”    </tr>\n”,
+”  </tbody>\n”,
+“</table>\n”,
+“</div>”
+],
+“text/plain”: [
+“\n”,
+”     +—————————————-+\n”,
+”     |   county   state   fips_c~y   prescr~e |\n”,
+”     |—————————————-|\n”,
+”  1. |  Autauga      AL      01001      134.8 |\n”,
+”  2. |  Baldwin      AL      01003      127.8 |\n”,
+”  3. |  Barbour      AL      01005       78.1 |\n”,
+”  4. |     Bibb      AL      01007      114.3 |\n”,
+”  5. |   Blount      AL      01009       40.3 |\n”,
+”     |—————————————-|\n”,
+”  6. |  Bullock      AL      01011       34.6 |\n”,
+”  7. |   Butler      AL      01013      105.4 |\n”,
+”  8. |  Calhoun      AL      01015      165.7 |\n”,
+”  9. | Chambers      AL      01017      120.4 |\n”,
+” 10. | Cherokee      AL      01019      123.8 |\n”,
+”     +—————————————-+\n”,
+“\n”
+]
+},
+“metadata”: {},
+“output_type”: “display_data”
+}
+],
+“source”: [
+“%head”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“So looking at the data some of these numbers are already quite suprising. A <code class="docutils literal notranslate"><span class="pre">prescip_rate</span></code> over 100 implies that for every person in the county, there was at least one opioid prescription (this does not imply everyone is using opioids, many people are prescribed more than one prescription per year).\n”,
+“\n”,
+“Now this is only data for 2006, but we want to see how prescription rates have evolved over time. Let’s look at a decade later, in 2016. To keep track of the year we need to create a new variable:”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 3,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“gen year = 2006”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Now we can <code class="docutils literal notranslate"><span class="pre">append</span></code> the 2016 dataset so that we have all the data together.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 4,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“append using ./data/opioids_2016.dta”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Now the dataset should include both the 2006 prescription rates as well as the 2016 prescription rates. To make sure we have everything here, let’s count the number of observations”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 5,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+”  5,466\n”
+]
+}
+],
+“source”: [
+“count”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Which is double the number we had before. One thing we need to do now before continuing is to fill in the variable <code class="docutils literal notranslate"><span class="pre">year</span></code> for the 2016 data. First, we can see that it is missing by typing”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 6,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“\n”,
+”       year |      Freq.     Percent        Cum.\n”,
+“————+———————————–\n”,
+”       2006 |      2,733      100.00      100.00\n”,
+“————+———————————–\n”,
+”      Total |      2,733      100.00\n”
+]
+}
+],
+“source”: [
+“tab year “
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“This reveals that year is only included for the 2006 observations, but missing for the 2,733 2016 observations. So let’s fill in that variable “
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 7,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“(2,733 real changes made)\n”
+]
+}
+],
+“source”: [
+“replace year = 2016 if year==.”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“And let’s check just to make sure that the command worked how we think it should.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 8,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“\n”,
+”       year |      Freq.     Percent        Cum.\n”,
+“————+———————————–\n”,
+”       2006 |      2,733       50.00       50.00\n”,
+”       2016 |      2,733       50.00      100.00\n”,
+“————+———————————–\n”,
+”      Total |      5,466      100.00\n”
+]
+}
+],
+“source”: [
+“tab year”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Ok so now we can start exploring prescription rates for opioid usage. Let’s first look at the mean prescription rate in both years.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 9,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“\n”,
+”            |  Summary of Prescriptions per 100\n”,
+”            |               persons\n”,
+”       year |        Mean   Std. Dev.       Freq.\n”,
+“————+————————————\n”,
+”       2006 |   80.658946   43.230614       2,733\n”,
+”       2016 |   80.098683   40.224893       2,733\n”,
+“————+————————————\n”,
+”      Total |   80.378814   41.751928       5,466\n”
+]
+}
+],
+“source”: [
+“tabulate year, summarize(prescrip_rate)”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“So, on average, opioid prescription rates are relatively similar between 2006 to 2016. This finding suprised me initially, given the media coverage of the opioid epidemic has only been relatively recent, and so I had assumed that prescription rates had been steadily increasing throughout the 2000s. After reading into this a little more, though, I discovered, that although prescriptions rates have been declining since 2012, illicit usage of close substitutes of prescription opioids, such as heroin, has been on the rise and fueling the opioid epidemic. So while legal prescriptions have been declining in recent years, overdoses due to illicit opioids has been on the rise.  \n”,
+“\n”,
+“Next, we want to understand variation across places, and what factors may be associated with high prescription rates. To simplify things for now, I am going to now restrict once again to the 2006 data.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 10,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“(2,733 observations deleted)\n”
+]
+}
+],
+“source”: [
+“keep if year==2006”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Let’s look at a histogram of the prescription rates across counties:”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: 11,
+“metadata”: {},
+“outputs”: [
+{
+“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [
+“\n”,
+“\n”,
+“(file ../images/prescriptions.svg written in SVG format)\n”
+]
+}
+],
+“source”: [
+“qui graph twoway histogram prescrip_rate, color(gs12) ///\n”,
+”    title(“Distribution of Opioid Prescription Rates Across Counties”) ///\n”,
+”    xtitle(“Prescription Rate”) ///\n”,
+”    ytitle(“Density”) ///\n”,
+”    note(“Source: Center for Disease Control”) ///\n”,
+”    legend(off) ///\n”,
+”    graphregion(color(white) fcolor(white)) \n”,
+“\n”,
+“gr export “../images/prescriptions.svg”, replace”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“<img alt="Alt text" src="../_images/prescriptions.svg" />”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.\n”,
+“\n”,
+“One hypothesis is that poor labor-market conditions are contributing to the epidemic. The logic being that workers who are laid off are more likely to abuse opioids. The causality could also work in the opposite direction. Individuals who are addicted to opioids may have a harder time finding a job, leading to higher unemployment. Providing a clear causal relationship from unemployment to opioid usage (or vice-versa) is a difficult and nuanced problem. In this application, however, we are going to look at whether there appears to be a correlation between the two, while being careful to not over-interpret any relationship we find.\n”,
+“\n”,
+“However, to do this, we need data on unemployment rates. These data will come from the Bureau of Labor Statistics and will be named <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code>. Now you can see the power of linking datasets. Very few datasets have both health and labor-market outcomes, but by combining datasets we can study a new questions. Let’s look at <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code> so that we can try to understand how we can merge it to <code class="docutils literal notranslate"><span class="pre">opioids_2006.dta</span></code>”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace\n”,
+“d”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“If you recall, we had a variable called <code class="docutils literal notranslate"><span class="pre">fips_county</span></code> in the opioid dataset as well. We will be merging the dataset on this variable. You need to make sure in general that the variable you are matching on is standardized across datasets. For these datasets, I found that the FIPS variables were stored in slightly different ways across datasets. For example, the FIPS code for the first county “Autauga County” was stored as “01001” in one of the datasets but “1001” where the difference is the leading zero. So I had to add the zero to the latter variable so that the codes would match properly. If you don’t make sure the merge variable is correct your analysis will be completely thrown off.\n”,
+“\n”,
+“So now let’s merge these two datsets using the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command:”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2016.dta”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“The merge command will always display a table like this as well as generate a variable called <code class="docutils literal notranslate"><span class="pre">_merge</span></code> (unless you use an option not to report or generate this variabl). In this example, I already made sure that the counties perfectly match between the opioids and the unemployment datasets. Therefore we got <code class="docutils literal notranslate"><span class="pre">_merge==3</span></code> for all the counties, because all the counties matched. Just to show you what happens, I’m going to reload the unemployment dataset, drop 1 observation, and then merge the two datasets again”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace\n”,
+“\n”,
+“// drop 1st observation\n”,
+“drop if _n==1\n”,
+“\n”,
+“// merge to opioid dataset\n”,
+“merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2006.dta\n”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Now we see that 2,732 of the counties in urate_2006.dta matched to a county in the opioids_2006 dataset. However, there was one county in the <strong>using</strong> dataset that did not match, by <code class="docutils literal notranslate"><span class="pre">_merge==2</span></code> in this table. In STATA, the <strong>master</strong> dataset is the dataset in memory before you apply the merge command. The <strong>using</strong> dataset is the dataset you merge to. So in this example, we loaded urate_2006.dta, making it the <strong>master</strong> dataset, and then we merged <code class="docutils literal notranslate"><span class="pre">using</span></code> opioids_2006.dta, making opioids_2006 the <strong>using</strong> dataset. Now let’s get back to application at hand and see how opioid prescription rates relate to unemployment rates. The most transparent way to start exploring is to just plot all the data in a scatter plot and see if we can see any patterns.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“use /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/urate_2006.dta, replace\n”,
+“merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2006.dta, nogen noreport”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(small) ///\n”,
+”    title(“Relation Between Unemployment and Opioids”) ///\n”,
+”    xtitle(“Unemployment Rate”) ///\n”,
+”    ytitle(“Prescriptions Per 100 People”) ///\n”,
+”    graphregion(color(white) fcolor(white)) “
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“I’m not sure about you but it is difficult for me to see any relationship in this graph. It looks perhaps vaguely that increases in unemployment rates are associated with higher prescription rates, but here hard to tell given how many counties there are. What we are going to do next is to use a dimension reduction technique that will allow us to better visualize the relationship between unemployment and prescription rates.\n”,
+“\n”,
+“What we are going to do this is to place counties into bins based on the unemployment rate and then compute the average prescription rate within each bin. This will also introduce a number of commands that can be very helpful with data wrangling. \n”,
+“\n”,
+“The first command we are going to use is the <code class="docutils literal notranslate"><span class="pre">cut</span></code> command. This will <code class="docutils literal notranslate"><span class="pre">cut</span></code> a numeric variable into a number of different bins. “
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“egen bin_u = cut(urate), group(10)”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“tab bin_u”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“The option <code class="docutils literal notranslate"><span class="pre">group(10)</span></code> indicated we wanted 10 different bins. There is not a hard science in computing the number of bins, it will often depend on what variable you are looking at. Choosing 10 here is more or less arbitrary.\n”,
+“\n”,
+“Now we are going to <code class="docutils literal notranslate"><span class="pre">collapse</span></code> the data so that we have a single observation per value of <code class="docutils literal notranslate"><span class="pre">bin_u</span></code>. <code class="docutils literal notranslate"><span class="pre">collapse</span></code> can be extremely useful as it allows you to change the unit of observation of your dataset quickly. For example, imagine we want to go from counties to states, from individuals to firms, from students to schools. Collapse will allow you to quickly transform the unit of observation in your dataset. In our data, we would like an observation for each bin.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“collapse (mean) prescrip_rate urate, by(bin_u)”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“%head”
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“To break down the command above <code class="docutils literal notranslate"><span class="pre">(mean)</span></code> indicates that STATA will compute the average value of <code class="docutils literal notranslate"><span class="pre">prescrip_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">urate</span></code> within each <code class="docutils literal notranslate"><span class="pre">bin_u</span></code> and then collapse the data so that there is a single observation for each value of <code class="docutils literal notranslate"><span class="pre">bin_u</span></code>. Therefore, for <code class="docutils literal notranslate"><span class="pre">bin_u=0</span></code> the average unemployment rate is 2.8 while the average prescriptions per 100 people is 68.7. Moving to <code class="docutils literal notranslate"><span class="pre">bin_u=1</span></code> the average unemployment rate is 3.4 while the average prescriptions per 100 people is 70.9. To visualize the data, we can try the scatterplot again, but with the bins.”
+]
+},
+{
+“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [
+“twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(large) ///\n”,
+”    title(“Relationship Between Unemployment and Opioids”) ///\n”,
+”    xtitle(“Unemployment Rate”) ///\n”,
+”    ytitle(“Prescriptions Per 100 People”) ///\n”,
+”    graphregion(color(white) fcolor(white)) “
+]
+},
+{
+“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [
+“Now it is clear that the prescription rates for opioids are higher in areas with higher unemployment, as shown in this figure. Again, it is important to stress that this relationship is by no means causal and the proper policy response likely depends on establishing causality. For example, imagine the goal of the government is to reduce opioid usage and they have two policies at their disposal. Policy one is to increase funding for prescription monitoring programs which can identify inappropriate prescription behavior by doctors. Policy two is to increase local employment subsidies increase the employment rates, which will in turn decrease opioid abuse.\n”,
+“\n”,
+“Whether policy one or two is effective depends on the main driver of the epidemic (not to mention the implementation details of each). If, for the sake of argument, the high prescription rates in areas with high unemployment is due completely to physician’s being more likely to prescribe opioids in these regions (for whatever reason), then the employment subsidies would likely be ineffective at reducing opioid usage. Instead, one should use the monitoring program to identify and dissuade inappropriate prescribing behavior. “
+]
+}
+],
+“metadata”: {
+“kernelspec”: {
+“display_name”: “Stata”,
+“language”: “stata”,
+“name”: “stata”
+},
+“language_info”: {
+“codemirror_mode”: “stata”,
+“file_extension”: “.do”,
+“mimetype”: “text/x-stata”,
+“name”: “stata”,
+“version”: “15.1”
+}
+},
+“nbformat”: 4,
+“nbformat_minor”: 4
+}</p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "darnold199/econ5",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Jupyter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By David Arnold<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -432,19 +432,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>One of the most powerful and attractive features of STATA is how easy it is to construct and clean data. By the end of the notebook you will earn how to append datasets, merge datasets, reshape datasets and collapse datasets.</p>
 <div class="section" id="appending-data">
 <h3>Appending data<a class="headerlink" href="#appending-data" title="Permalink to this headline">¶</a></h3>
-<p>Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the <code>append</code> command in STATA.</p>
-<p><img alt="" src="../_images/append.png" /></p>
+<p>Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the <code class="docutils literal notranslate"><span class="pre">append</span></code> command in STATA.</p>
+<p><img alt="" src="../_images/append1.png" /></p>
 <!---To append two datasets you need to be careful about being consistent with variable names across datasets. For example, if dataset 1 had named the GPA variable ``GPA`` and dataset 2 had named it ``grade_point_average``, then both variables will appear in the appended dataset, but GPA will be missing for ever student in dataset 2.--> 
 </div>
 <div class="section" id="merging-data">
 <h3>Merging data<a class="headerlink" href="#merging-data" title="Permalink to this headline">¶</a></h3>
 <p>A similar, but slightly different scenario is when we want to <code class="docutils literal notranslate"><span class="pre">merge</span></code> two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command is to create a single dataset with student identifiers, school identifiers, and student grades:</p>
-<img src="../images/merge_one.png" width="800">
+<p><img alt="" src="../_images/merge_one.png" /></p>
 </div>
 <div class="section" id="reshaping-data">
 <h3>Reshaping Data<a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h3>
 <p>Often we have multiple observations for the same unit (for example, a GPA for a student each term). It is sometimes convenient to reshape the data so that we have a single observation per student. When we have multiple observations per unit, then our data is in <code class="docutils literal notranslate"><span class="pre">long</span></code> forma. If we have a single observation per unit, then we are in <code class="docutils literal notranslate"><span class="pre">wide</span></code> format. In STATA we can freely convert between the two:</p>
-<img src="img/reshape.png" width="800">
+<p><img alt="" src="../_images/reshape.png" /></p>
 <p>The syntax for reshaping can sometimes be hard to remember so don’t forget to reference the <code class="docutils literal notranslate"><span class="pre">help</span></code> file if you find yourself forgetting how to reshape the data.</p>
 </div>
 </div>
@@ -452,13 +452,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Application – Opioid Prescriptions in the United States<a class="headerlink" href="#application-opioid-prescriptions-in-the-united-states" title="Permalink to this headline">¶</a></h2>
 <p>Beginning in the 1990s up until today, opioid usage has been skyrocketing in the United States. In this application we are going to look at opioid usage across U.S. counties. We will be particularly interested in understanding what factors, such as labor-market conditions, may be associated with opioid usage.</p>
 <p>The first dataset we will look at is named <code class="docutils literal notranslate"><span class="pre">opioid_2006.dta</span></code> and comes from the CDC <a class="reference external" href="https://www.cdc.gov/drugoverdose/maps/rxrate-maps.html">source</a>. The data reports the prescription rate for a large portion of U.S. counties. The prescription rate will be defined as the number of prescriptions (per year) per 100 people. So a prescription rate of 50 implies that in that year, there were 50 opioid prescriptions per 100 people. Because a single person can have multiple prescriptions per year, this rate is not equal to the fraction of people using opioids per year. That will be even clearer once we load the data.</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>opioids_2006<span class="m">.</span>dta,<span class="k"> replace</span>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> .<span class="o">/</span>data<span class="o">/</span>opioids_2006<span class="m">.</span>dta,<span class="k"> replace</span>
 
 <span class="k">describe</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Contains data from /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_20
-&gt; 06.dta
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Contains data from ./data/opioids_2006.dta
   obs:         2,733                          
  vars:             4                          19 Aug 2020 14:20
 --------------------------------------------------------------------------------
@@ -582,7 +581,7 @@ Sorted by: fips_county
 </pre></div>
 </div>
 <p>Now we can <code class="docutils literal notranslate"><span class="pre">append</span></code> the 2016 dataset so that we have all the data together.</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">append</span> using <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>opioids_2016<span class="m">.</span>dta
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">append</span> using .<span class="o">/</span>data<span class="o">/</span>opioids_2016<span class="m">.</span>dta
 </pre></div>
 </div>
 <p>Now the dataset should include both the 2006 prescription rates as well as the 2016 prescription rates. To make sure we have everything here, let’s count the number of observations</p>
@@ -653,28 +652,50 @@ Sorted by: fips_county
     legend(off) <span class="cs">///</span>
     graphregion(color(white) fcolor(white)) 
 
-<span class="k">gr</span> export <span class="s">&quot;img/prescriptions.svg&quot;</span>,<span class="k"> replace</span>
+<span class="k">gr</span> export <span class="s">&quot;../images/prescriptions.svg&quot;</span>,<span class="k"> replace</span>
 </pre></div>
 </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(note: file img/prescriptions.svg not found)
-(file img/prescriptions.svg written in SVG format)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(file ../images/prescriptions.svg written in SVG format)
 </pre></div>
 </div>
 <p><img alt="Alt text" src="https://darnold199.github.io/econ5/images/prescriptions.svg" /></p>
 <p>To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.</p>
 <p>One hypothesis is that poor labor-market conditions are contributing to the epidemic. The logic being that workers who are laid off are more likely to abuse opioids. The causality could also work in the opposite direction. Individuals who are addicted to opioids may have a harder time finding a job, leading to higher unemployment. Providing a clear causal relationship from unemployment to opioid usage (or vice-versa) is a difficult and nuanced problem. In this application, however, we are going to look at whether there appears to be a correlation between the two, while being careful to not over-interpret any relationship we find.</p>
 <p>However, to do this, we need data on unemployment rates. These data will come from the Bureau of Labor Statistics and will be named <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code>. Now you can see the power of linking datasets. Very few datasets have both health and labor-market outcomes, but by combining datasets we can study a new questions. Let’s look at <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code> so that we can try to understand how we can merge it to <code class="docutils literal notranslate"><span class="pre">opioids_2006.dta</span></code></p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> .<span class="o">/</span>data<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
 <span class="k">d</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Contains data from ./data/urate_2006.dta
+  obs:         2,733                          
+ vars:             4                          19 Aug 2020 14:20
+--------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+--------------------------------------------------------------------------------
+county          str47   %47s                  County
+labor_force     str14   %14s                  Total number of Workers in the
+                                                Labor Force
+urate           double  %10.0g                Unemployment Rate
+fips_county     str16   %16s                  Numeric FIPS code for County
+--------------------------------------------------------------------------------
+Sorted by: fips_county
 </pre></div>
 </div>
 <p>If you recall, we had a variable called <code class="docutils literal notranslate"><span class="pre">fips_county</span></code> in the opioid dataset as well. We will be merging the dataset on this variable. You need to make sure in general that the variable you are matching on is standardized across datasets. For these datasets, I found that the FIPS variables were stored in slightly different ways across datasets. For example, the FIPS code for the first county “Autauga County” was stored as “01001” in one of the datasets but “1001” where the difference is the leading zero. So I had to add the zero to the latter variable so that the codes would match properly. If you don’t make sure the merge variable is correct your analysis will be completely thrown off.</p>
 <p>So now let’s merge these two datsets using the <code class="docutils literal notranslate"><span class="pre">merge</span></code> command:</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> fips_county using <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>urate_2016<span class="m">.</span>dta
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> fips_county using .<span class="o">/</span>data<span class="o">/</span>urate_2016<span class="m">.</span>dta
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                             2,733  (_merge==3)
+    -----------------------------------------
 </pre></div>
 </div>
 <p>The merge command will always display a table like this as well as generate a variable called <code class="docutils literal notranslate"><span class="pre">_merge</span></code> (unless you use an option not to report or generate this variabl). In this example, I already made sure that the counties perfectly match between the opioids and the unemployment datasets. Therefore we got <code class="docutils literal notranslate"><span class="pre">_merge==3</span></code> for all the counties, because all the counties matched. Just to show you what happens, I’m going to reload the unemployment dataset, drop 1 observation, and then merge the two datasets again</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> .<span class="o">/</span>data<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
 
 <span class="c1">// drop 1st observation</span>
 <span class="k">drop if</span> _n<span class="o">==</span><span class="m">1</span>
@@ -683,18 +704,37 @@ Sorted by: fips_county
 <span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> fips_county using <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>opioids_2006<span class="m">.</span>dta
 </pre></div>
 </div>
-<p>Now we see that 2,732 of the counties in urate_2006.dta matched to a county in the opioids_2006 dataset. However, there was one county in the <strong>using</strong> dataset that did not match, by <code class="docutils literal notranslate"><span class="pre">_merge==2</span></code> in this table. In STATA, the <strong>master</strong> dataset is the dataset in memory before you apply the merge command. The <strong>using</strong> dataset is the dataset you merge to. So in this example, we loaded urate_2006.dta, making it the <strong>master</strong> dataset, and then we merged <code class="docutils literal notranslate"><span class="pre">using</span></code> opioids_2006.dta, making opioids_2006 the <strong>using</strong> dataset. Now let’s get back to application at hand and see how opioid prescription rates relate to unemployment rates. The most transparent way to start exploring is to just plot all the data in a scatter plot and see if we can see any patterns.</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
-<span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> fips_county using <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>Dropbox<span class="o">/</span>Teaching<span class="o">/</span>ECON5<span class="o">/</span>Datasets<span class="o">/</span>opioids_2006<span class="m">.</span>dta, nogen noreport
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1 observation deleted)
+
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  (_merge==1)
+        from using                          1  (_merge==2)
+
+    matched                             2,732  (_merge==3)
+    -----------------------------------------
 </pre></div>
 </div>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">twoway scatter</span> prescrip_rate urate, msymbol(circle_hollow) msize(small) <span class="cs">///</span>
+<p>Now we see that 2,732 of the counties in urate_2006.dta matched to a county in the opioids_2006 dataset. However, there was one county in the <strong>using</strong> dataset that did not match, by <code class="docutils literal notranslate"><span class="pre">_merge==2</span></code> in this table. In STATA, the <strong>master</strong> dataset is the dataset in memory before you apply the merge command. The <strong>using</strong> dataset is the dataset you merge to. So in this example, we loaded urate_2006.dta, making it the <strong>master</strong> dataset, and then we merged <code class="docutils literal notranslate"><span class="pre">using</span></code> opioids_2006.dta, making opioids_2006 the <strong>using</strong> dataset. Now let’s get back to application at hand and see how opioid prescription rates relate to unemployment rates. The most transparent way to start exploring is to just plot all the data in a scatter plot and see if we can see any patterns.</p>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> .<span class="o">/</span>data<span class="o">/</span>urate_2006<span class="m">.</span>dta,<span class="k"> replace</span>
+<span class="k">merge</span> <span class="m">1</span>:<span class="m">1</span> fips_county using .<span class="o">/</span>data<span class="o">/</span>opioids_2006<span class="m">.</span>dta, nogen noreport
+</pre></div>
+</div>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">qui twoway scatter</span> prescrip_rate urate, msymbol(circle_hollow) msize(small) <span class="cs">///</span>
     title(<span class="s">&quot;Relation Between Unemployment and Opioids&quot;</span>) <span class="cs">///</span>
     xtitle(<span class="s">&quot;Unemployment Rate&quot;</span>) <span class="cs">///</span>
     ytitle(<span class="s">&quot;Prescriptions Per 100 People&quot;</span>) <span class="cs">///</span>
     graphregion(color(white) fcolor(white)) 
+
+<span class="k">gr</span> export <span class="s">&quot;../images/opioids_u.svg&quot;</span>,<span class="k"> replace</span>
 </pre></div>
 </div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(file ../images/opioids_u.svg written in SVG format)
+</pre></div>
+</div>
+<p><img alt="Alt text" src="https://darnold199.github.io/econ5/images/opioids_u.svg" /></p>
 <p>I’m not sure about you but it is difficult for me to see any relationship in this graph. It looks perhaps vaguely that increases in unemployment rates are associated with higher prescription rates, but here hard to tell given how many counties there are. What we are going to do next is to use a dimension reduction technique that will allow us to better visualize the relationship between unemployment and prescription rates.</p>
 <p>What we are going to do this is to place counties into bins based on the unemployment rate and then compute the average prescription rate within each bin. This will also introduce a number of commands that can be very helpful with data wrangling.</p>
 <p>The first command we are going to use is the <code class="docutils literal notranslate"><span class="pre">cut</span></code> command. This will <code class="docutils literal notranslate"><span class="pre">cut</span></code> a numeric variable into a number of different bins.</p>
@@ -702,6 +742,22 @@ Sorted by: fips_county
 </pre></div>
 </div>
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">tab</span> bin_u
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      bin_u |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |        261        9.55        9.55
+          1 |        232        8.49       18.04
+          2 |        319       11.67       29.71
+          3 |        265        9.70       39.41
+          4 |        240        8.78       48.19
+          5 |        279       10.21       58.40
+          6 |        277       10.14       68.53
+          7 |        295       10.79       79.33
+          8 |        274       10.03       89.35
+          9 |        291       10.65      100.00
+------------+-----------------------------------
+      Total |      2,733      100.00
 </pre></div>
 </div>
 <p>The option <code class="docutils literal notranslate"><span class="pre">group(10)</span></code> indicated we wanted 10 different bins. There is not a hard science in computing the number of bins, it will often depend on what variable you are looking at. Choosing 10 here is more or less arbitrary.</p>
@@ -712,14 +768,108 @@ Sorted by: fips_county
 <div class="highlight-stata notranslate"><div class="highlight"><pre><span></span>%head
 </pre></div>
 </div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bin_u</th>
+      <th>prescrip_rate</th>
+      <th>urate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>68.59348659003832</td>
+      <td>2.784674329501916</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>70.88275862068967</td>
+      <td>3.351293103448272</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>73.89278996865207</td>
+      <td>3.818808777429465</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3</td>
+      <td>70.92981132075475</td>
+      <td>4.203396226415093</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4</td>
+      <td>82.70625000000004</td>
+      <td>4.502500000000001</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5</td>
+      <td>81.48136200716843</td>
+      <td>4.847311827956991</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6</td>
+      <td>80.91768953068592</td>
+      <td>5.24765342960289</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>7</td>
+      <td>88.80711864406781</td>
+      <td>5.710508474576269</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>8</td>
+      <td>93.96167883211683</td>
+      <td>6.480656934306568</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>9</td>
+      <td>92.04261168384876</td>
+      <td>8.413402061855663</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 <p>To break down the command above <code class="docutils literal notranslate"><span class="pre">(mean)</span></code> indicates that STATA will compute the average value of <code class="docutils literal notranslate"><span class="pre">prescrip_rate</span></code> and <code class="docutils literal notranslate"><span class="pre">urate</span></code> within each <code class="docutils literal notranslate"><span class="pre">bin_u</span></code> and then collapse the data so that there is a single observation for each value of <code class="docutils literal notranslate"><span class="pre">bin_u</span></code>. Therefore, for <code class="docutils literal notranslate"><span class="pre">bin_u=0</span></code> the average unemployment rate is 2.8 while the average prescriptions per 100 people is 68.7. Moving to <code class="docutils literal notranslate"><span class="pre">bin_u=1</span></code> the average unemployment rate is 3.4 while the average prescriptions per 100 people is 70.9. To visualize the data, we can try the scatterplot again, but with the bins.</p>
-<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">twoway scatter</span> prescrip_rate urate, msymbol(circle_hollow) msize(large) <span class="cs">///</span>
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">qui twoway scatter</span> prescrip_rate urate, msymbol(circle_hollow) msize(large) <span class="cs">///</span>
     title(<span class="s">&quot;Relationship Between Unemployment and Opioids&quot;</span>) <span class="cs">///</span>
     xtitle(<span class="s">&quot;Unemployment Rate&quot;</span>) <span class="cs">///</span>
     ytitle(<span class="s">&quot;Prescriptions Per 100 People&quot;</span>) <span class="cs">///</span>
     graphregion(color(white) fcolor(white)) 
+
+<span class="k">gr</span> export ..<span class="o">/</span>images<span class="o">/</span>opioids_u_2<span class="m">.</span>svg,<span class="k"> replace</span>
 </pre></div>
 </div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(file ../images/opioids_u_2.svg written in SVG format)
+</pre></div>
+</div>
+<p><img alt="Alt text" src="https://darnold199.github.io/econ5/images/opioids_u_2.svg.svg" /></p>
 <p>Now it is clear that the prescription rates for opioids are higher in areas with higher unemployment, as shown in this figure. Again, it is important to stress that this relationship is by no means causal and the proper policy response likely depends on establishing causality. For example, imagine the goal of the government is to reduce opioid usage and they have two policies at their disposal. Policy one is to increase funding for prescription monitoring programs which can identify inappropriate prescription behavior by doctors. Policy two is to increase local employment subsidies increase the employment rates, which will in turn decrease opioid abuse.</p>
 <p>Whether policy one or two is effective depends on the main driver of the epidemic (not to mention the implementation details of each). If, for the sake of argument, the high prescription rates in areas with high unemployment is due completely to physician’s being more likely to prescribe opioids in these regions (for whatever reason), then the employment subsidies would likely be ineffective at reducing opioid usage. Instead, one should use the monitoring program to identify and dissuade inappropriate prescribing behavior.</p>
 </div>
