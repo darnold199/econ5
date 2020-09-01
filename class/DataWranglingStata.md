@@ -17,7 +17,7 @@ Appending data is a simple way combine observations from two different datasets.
 
 A similar, but slightly different scenario is when we want to `merge` two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the ``merge`` command is to create a single dataset with student identifiers, school identifiers, and student grades:
 
-<img src="img/merge_one.png" width="800">
+<img src="../images/merge_one.png" width="800">
 
 ### Reshaping Data
 
@@ -283,8 +283,7 @@ gr export "img/prescriptions.svg", replace
     
     (note: file img/prescriptions.svg not found)
     (file img/prescriptions.svg written in SVG format)
-
-![Alt text](../images/prescriptions.svg)
+![Alt text](https://darnold199.github.io/econ5/images/prescriptions.svg)
 
 To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.
 
