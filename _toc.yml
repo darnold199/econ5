@@ -21,7 +21,8 @@
   chapters:
     - file: class/StataTutorialSlides.slides.html
       title: Introduction to STATA
-    - file: class/test_notebook
+    - file: class/DataWranglingStata.md
+      title: Data Wrangling
     - file: class/topic1
       title: Week 1 - Topic
     - file: class/topic2
