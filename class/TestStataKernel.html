@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Topic 1 &#8212; Econ/Poli 5</title>
+    <title>Test Stata Kernel notebook &#8212; Econ/Poli 5</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -72,19 +72,21 @@ commentsRunWhenDOMLoaded(addUtterances);
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://darnold199.github.io/econ5/class/topic1.html" />
+    <link rel="canonical" href="https://darnold199.github.io/econ5/class/TestStataKernel.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Topic 2" href="topic2.html" />
+    <link rel="prev" title="Data Wrangling in STATA" href="DataWranglingStata.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://darnold199.github.io/econ5/class/topic1.html" />
+<meta property="og:url"         content="https://darnold199.github.io/econ5/class/TestStataKernel.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Topic 1" />
-<meta property="og:description" content="Topic 1  Notes about topic 1.  Clickers  Doing clicker questions using JupyterBook is very seamless for students!  One can use any of the web-based options that" />
+<meta property="og:title"       content="Test Stata Kernel notebook" />
+<meta property="og:description" content="Test Stata Kernel notebook  cd /Users/davidarnold/econ5  /Users/davidarnold/econ5 " />
 <meta property="og:image"       content="https://darnold199.github.io/econ5/_static/icon.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -179,14 +181,14 @@ commentsRunWhenDOMLoaded(addUtterances);
   Part 1 - Kinematics
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="DataWranglingStata.html">
    Data Wrangling
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="TestStataKernel.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Week 1 - Stata Kernel
   </a>
  </li>
@@ -340,9 +342,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/class/topic1.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/class/TestStataKernel.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -360,10 +362,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/darnold199/econ5/issues/new?title=Issue%20on%20page%20%2Fclass/topic1.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/darnold199/econ5/issues/new?title=Issue%20on%20page%20%2Fclass/TestStataKernel.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/darnold199/econ5/edit/master/class/topic1.md"><button
+        <a class="edit-button" href="https://github.com/darnold199/econ5/edit/master/class/TestStataKernel.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -377,6 +379,31 @@ commentsRunWhenDOMLoaded(addUtterances);
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/darnold199/econ5/master?urlpath=lab/tree/class/TestStataKernel.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/darnold199/econ5/blob/master/class/TestStataKernel.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -385,36 +412,7 @@ commentsRunWhenDOMLoaded(addUtterances);
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clickers">
-   Clickers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-kinematics-in-1d">
-   Introduction to Kinematics in 1D
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#short-quiz">
-   Short Quiz
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#making-quizzes-on-qualtrics">
-     Making quizzes on Qualtrics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quiz-in-a-video">
-   Quiz IN a video
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -423,58 +421,19 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <div class="section" id="topic-1">
-<span id="page-topic1"></span><h1>Topic 1<a class="headerlink" href="#topic-1" title="Permalink to this headline">¶</a></h1>
-<p>Notes about topic 1.</p>
-<div class="section" id="clickers">
-<h2>Clickers<a class="headerlink" href="#clickers" title="Permalink to this headline">¶</a></h2>
-<p>Doing clicker questions using JupyterBook is very seamless for students!</p>
-<p>One can use any of the web-based options that exist.</p>
-<p>Some examples I have used before are:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sli.do">sli.do</a></p></li>
-<li><p><a class="reference external" href="https://pollev.com">Poll Everywhere</a></p></li>
-<li><p><a class="reference external" href="https://typeform">TypeForm</a></p></li>
-<li><p><a class="reference external" href="https://www.mentimeter.com">Mentimeter</a></p></li>
-</ul>
-<p>There are many others, most should work if they have some sort of web interface.</p>
-<p>In general, here are the steps to do this:</p>
-<ol class="simple">
-<li><p>Create your poll as you would</p></li>
-<li><p>Grab the embed URL from the website (see <code class="xref std std-numref docutils literal notranslate"><span class="pre">figure-slido</span></code>)</p></li>
-<li><p>Paste it into a jupyter notebook file as a markdown cell or as an IFrame</p></li>
-</ol>
-<iframe src="https://app.sli.do/event/7cljwqgq/embed/polls/ab33d3ee-f713-498d-9f31-7db3e85497af" frameborder="0" width="700" height="650"></iframe>
-</div>
-<div class="section" id="introduction-to-kinematics-in-1d">
-<h2>Introduction to Kinematics in 1D<a class="headerlink" href="#introduction-to-kinematics-in-1d" title="Permalink to this headline">¶</a></h2>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe src="https://www.youtube.com/watch?v=ZM8ECpBuQYE&list=PL8dPuuaLjXtN0ge7yDk_UA0ldZJdhwkoV&t=0s" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+  <div class="section" id="test-stata-kernel-notebook">
+<h1>Test Stata Kernel notebook<a class="headerlink" href="#test-stata-kernel-notebook" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> <span class="o">/</span>Users<span class="o">/</span>davidarnold<span class="o">/</span>econ5
+</pre></div>
 </div>
 </div>
-<div class="section" id="short-quiz">
-<h2>Short Quiz<a class="headerlink" href="#short-quiz" title="Permalink to this headline">¶</a></h2>
-<p>You may imagine giving students a short comprehension quiz after they watch a video to make sure they grasped the finer points of the lesson.
-You can also embed quizzes directly into your JupyterBook so it’s a seamless experience for the students.
-Here we will use Qualtrics, but other options are also possible!</p>
-<p>The example quiz with automatic scoring below is from the <a class="reference external" href="http://webservices.itcs.umich.edu/mediawiki/qualtrics/index.php/Example_Surveys">University of Michigan Qualtrics wiki</a>!</p>
-<iframe src="https://umichbus.qualtrics.com/SE/?SID=SV_cFPFvElYyKyb3qB" frameborder="0" width="100%" height="2200px"></iframe>
-<div class="section" id="making-quizzes-on-qualtrics">
-<h3>Making quizzes on Qualtrics<a class="headerlink" href="#making-quizzes-on-qualtrics" title="Permalink to this headline">¶</a></h3>
-<p>Qualtrics has some <a class="reference external" href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/scoring/">extremely good resources</a> on creating quizzes and automatically scoring them.
-There are sophisticated options for creating quizzes, I encourage you to check it out.
-At UBC and UBCO, we have an institutional license to Qualtrics, so you can even ask students to authenticate via CWL and collect student identification information.
-In other words - if used correctly - this is fully FIPPA compliant!</p>
-<p>Here’s the qualtrics survey embedded in the IFrame.</p>
-<iframe src="https://ubc.ca1.qualtrics.com/jfe/form/SV_0MyZxI8Wck4YTxX" frameborder="0" width="100%" height="600px"></iframe>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/davidarnold/econ5
+</pre></div>
 </div>
 </div>
-<div class="section" id="quiz-in-a-video">
-<h2>Quiz IN a video<a class="headerlink" href="#quiz-in-a-video" title="Permalink to this headline">¶</a></h2>
-<p>Scenario B is pretty good, but it’s still a bit clunky as the quiz and the video are separated.
-That is often a desired feature, especially if students want to come back and re-visit the quiz after thinking about the video.</p>
-<p>Sometimes though, it would be good to pause the video and ask students one or several clicker-type questions, and give them some feedback.</p>
-<p>This is where the Kaltura Video Service (and a few others) can help facilitate these types of interactions.</p>
 </div>
 </div>
 
@@ -487,16 +446,16 @@ That is often a desired feature, especially if students want to come back and re
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "stata"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "stata",
             path: "./class"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'stata'</script>
 
               </div>
               
@@ -506,6 +465,8 @@ That is often a desired feature, especially if students want to come back and re
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="DataWranglingStata.html" title="previous page">Data Wrangling in STATA</a>
+    <a class='right-next' id="next-link" href="topic2.html" title="next page">Topic 2</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
