@@ -1,7 +1,7 @@
 # Book settings
-title: Physics 111 
-author: Firas Moosvi
-logo: images/logo.jpg
+title: Econ/Poli 5 
+author: David Arnold
+logo: images/icon.png
 copyright: ""
 exclude_patterns: ["LICENSE.md", "README.md"]
 
@@ -14,7 +14,7 @@ html:
   use_issues_button: true
   use_edit_page_button: true
   navbar_number_sections : false
-  baseurl : "https://firasm.github.io/jupyterbook_course_template/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl : "https://darnold199.github.io/econ5/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   # google_analytics_id: UA-11111111 # add your Google Analytics Tracking Code
   comments:
     hypothesis: true
