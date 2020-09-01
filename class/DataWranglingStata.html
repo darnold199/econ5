@@ -660,8 +660,7 @@ Sorted by: fips_county
 (file img/prescriptions.svg written in SVG format)
 </pre></div>
 </div>
-<p><img alt="Alt text" src="../_images/prescriptions.svg" />
-<img src="../images/prescriptions.svg"></p>
+<img src="../images/prescriptions.svg">
 <p>To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.</p>
 <p>One hypothesis is that poor labor-market conditions are contributing to the epidemic. The logic being that workers who are laid off are more likely to abuse opioids. The causality could also work in the opposite direction. Individuals who are addicted to opioids may have a harder time finding a job, leading to higher unemployment. Providing a clear causal relationship from unemployment to opioid usage (or vice-versa) is a difficult and nuanced problem. In this application, however, we are going to look at whether there appears to be a correlation between the two, while being careful to not over-interpret any relationship we find.</p>
 <p>However, to do this, we need data on unemployment rates. These data will come from the Bureau of Labor Statistics and will be named <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code>. Now you can see the power of linking datasets. Very few datasets have both health and labor-market outcomes, but by combining datasets we can study a new questions. Let’s look at <code class="docutils literal notranslate"><span class="pre">urate_2006.dta</span></code> so that we can try to understand how we can merge it to <code class="docutils literal notranslate"><span class="pre">opioids_2006.dta</span></code></p>

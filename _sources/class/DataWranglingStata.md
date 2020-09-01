@@ -284,7 +284,6 @@ gr export "img/prescriptions.svg", replace
     (note: file img/prescriptions.svg not found)
     (file img/prescriptions.svg written in SVG format)
 
-![Alt text](../images/prescriptions.svg)
 <img src="../images/prescriptions.svg">
 
 To me, this looks like incredible variation across location. Some counties have basically zero prescriptions per person, while others have over 2 prescriptions per person. Understanding what drives this variation across locations is an incredibly important question. If we want to develop policies aimed at preventing opioid overdoses, we need to understand what is fueling the epidemic.
