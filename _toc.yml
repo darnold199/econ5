@@ -19,8 +19,8 @@
 
 - part: Part 1 - Kinematics
   chapters:
-    - file: class/part1
-      title: Introduction
+    - file: class/StataTutorialSlides.slides.html
+      title: Introduction to STATA
     - file: class/test_notebook
     - file: class/topic1
       title: Week 1 - Topic
