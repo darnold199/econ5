@@ -18,7 +18,7 @@ html:
   # google_analytics_id: UA-11111111 # add your Google Analytics Tracking Code
   comments:
     hypothesis: false
-    utterances:
+    utterances: false
       repo: "darnold199/econ5"
   
 launch_buttons:
