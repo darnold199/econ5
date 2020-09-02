@@ -8,7 +8,7 @@ One of the most powerful and attractive features of STATA is how easy it is to c
 
 Appending data is a simple way combine observations from two different datasets. In many datasets you will come across in the wild, the data are often stored in multiple files. For example, a file for each year or a file for each state, but when we go to data analysis, it will generally be convenient to have all the data together in the same file. For example, in the simple example given below, we have two datasets, each from a separate school. We can construct a new dataset that combines the school-specific datasets by using the ``append`` command in STATA.
 
-![](append.png)
+![](../images/append.png)
 
 <!---To append two datasets you need to be careful about being consistent with variable names across datasets. For example, if dataset 1 had named the GPA variable ``GPA`` and dataset 2 had named it ``grade_point_average``, then both variables will appear in the appended dataset, but GPA will be missing for ever student in dataset 2.--> 
 
@@ -16,13 +16,13 @@ Appending data is a simple way combine observations from two different datasets.
 
 A similar, but slightly different scenario is when we want to ``merge`` two datasets. We do this when we have two datasets that have a common unit of observation, but potentially different variables. For example, in the simple example below, dataset 1 is a datset of students and their assigned school, while dataset 2 is a dataset of students and their grades. The goal of the ``merge`` command is to create a single dataset with student identifiers, school identifiers, and student grades:
 
-![](./images/merge_one.png)
+![](../images/merge_one.png)
 
 ### Reshaping Data
 
 Often we have multiple observations for the same unit (for example, a GPA for a student each term). It is sometimes convenient to reshape the data so that we have a single observation per student. When we have multiple observations per unit, then our data is in ``long`` forma. If we have a single observation per unit, then we are in ``wide`` format. In STATA we can freely convert between the two:
 
-![](./images/reshape.png)
+![](../images/reshape.png)
 
 The syntax for reshaping can sometimes be hard to remember so don't forget to reference the ``help`` file if you find yourself forgetting how to reshape the data. 
 
@@ -274,12 +274,13 @@ qui graph twoway histogram prescrip_rate, color(gs12) ///
     legend(off) ///
     graphregion(color(white) fcolor(white)) 
 
-gr export "../images/prescriptions.svg", replace
+gr export "../images/prescriptions.pdf", replace
 ```
 
     
     
-    (file ../images/prescriptions.svg written in SVG format)
+    (file ../images/prescriptions.pdf written in PDF format)
+
 
 ![](../images/prescriptions.png)
 
@@ -341,7 +342,7 @@ use ./data/urate_2006.dta, replace
 drop if _n==1
 
 // merge to opioid dataset
-merge 1:1 fips_county using /Users/davidarnold/Dropbox/Teaching/ECON5/Datasets/opioids_2006.dta
+merge 1:1 fips_county using ./data/opioids_2006.dta
 
 ```
 
@@ -376,15 +377,15 @@ qui twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(small) ///
     ytitle("Prescriptions Per 100 People") ///
     graphregion(color(white) fcolor(white)) 
 
-gr export "../images/opioids_u.svg", replace
+gr export "../images/opioids_u.png", replace
 ```
 
     
     
-    (file ../images/opioids_u.svg written in SVG format)
+    (file ../images/opioids_u.png written in PNG format)
 
 
-![Alt text](https://darnold199.github.io/econ5/images/opioids_u.svg)
+![](../images/opioids_u.png)
 
 I'm not sure about you but it is difficult for me to see any relationship in this graph. It looks perhaps vaguely that increases in unemployment rates are associated with higher prescription rates, but here hard to tell given how many counties there are. What we are going to do next is to use a dimension reduction technique that will allow us to better visualize the relationship between unemployment and prescription rates.
 
@@ -533,15 +534,15 @@ qui twoway scatter prescrip_rate urate, msymbol(circle_hollow) msize(large) ///
     ytitle("Prescriptions Per 100 People") ///
     graphregion(color(white) fcolor(white)) 
 
-gr export ../images/opioids_u_2.svg, replace
+gr export "../images/opioids_u_2.png", replace
 ```
 
     
     
-    (file ../images/opioids_u_2.svg written in SVG format)
+    (file ../images/opioids_u_2.png written in PNG format)
 
 
-![Alt text](https://darnold199.github.io/econ5/images/opioids_u_2.svg.svg)
+![](../images/opioids_u_2.png)
 
 Now it is clear that the prescription rates for opioids are higher in areas with higher unemployment, as shown in this figure. Again, it is important to stress that this relationship is by no means causal and the proper policy response likely depends on establishing causality. For example, imagine the goal of the government is to reduce opioid usage and they have two policies at their disposal. Policy one is to increase funding for prescription monitoring programs which can identify inappropriate prescription behavior by doctors. Policy two is to increase local employment subsidies increase the employment rates, which will in turn decrease opioid abuse.
 
