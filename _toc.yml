@@ -1,28 +1,8 @@
 - file: about/syllabus
   expand_sections: true
 
-- part: About this course
+- part: Part 1 - Microsoft Excel
   chapters:
-    - file: about/course_schedule
-    - file: about/accommodations
-    - file: about/doing_well
-    - file: about/faq
-
-- part: Course Feedback
-  chapters:
-    - file: about/feedback
-      title: Anonymous Feedback Form
-
-- part: First Week!
-  chapters:
-    - file: class/getting_started
-
-- part: Part 1 - Kinematics
-  chapters:
-    - file: class/DataWranglingStata.md
-      title: Data Wrangling
-    - file: class/TestStataKernel.ipynb
-      title: Week 1 - Stata Kernel
     - file: class/topic2
       title: Week 2 - Topic
     - file: class/topic3
@@ -31,10 +11,10 @@
       title: Week 4 - Topic
     - file: class/topic5
       title: Week 5 - Topic
-- part: Part 2 - Dynamics
+- part: Part 2 - STATA
   chapters:
-    - file: class/part2
-      title: Part 2
+    - file: class/DataWranglingStata.md
+      title: Data Wrangling
     - file: class/topic6
       title: Week 6 - Topic
     - file: class/topic7
