@@ -3,8 +3,6 @@
 
 - part: Part 1 - Microsoft Excel
   chapters:
-    - file: class/pivottables.md
-      title: Week 1 -- Pivot Tables
     - file: class/topic3
       title: Week 3 - Topic
     - file: class/topic4
