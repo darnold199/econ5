@@ -17,7 +17,7 @@ html:
   baseurl : "https://darnold199.github.io/econ5/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   # google_analytics_id: UA-11111111 # add your Google Analytics Tracking Code
   comments:
-    hypothesis: true
+    hypothesis: false
     utterances:
       repo: "darnold199/econ5"
   
